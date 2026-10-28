@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ONRO · Live assistant</title>
+  <link rel="stylesheet" href="./companion.css">
+  <style>
+    /* ONROL discipline: sharp corners, hairline borders, brand orange #f46718 with black text. */
+    .lead-form{display:grid;gap:8px;margin:8px 0 0;padding:12px;border:1px solid rgba(10,10,10,.1);background:#fff}
+    .lead-form[hidden]{display:none}
+    .lead-form label{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#0a0a0a}
+    .lead-form input{min-height:44px;padding:0 12px;border:1px solid rgba(10,10,10,.3);border-radius:0;font:inherit;color:#0a0a0a;background:#fff}
+    .lead-form input:focus-visible,.lead-form button:focus-visible,.retry:focus-visible{outline:2px solid #f46718;outline-offset:2px}
+    .lead-form button{min-height:44px;border:0;border-radius:0;background:#f46718;color:#0a0a0a;font:inherit;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+    .lead-form button:disabled{opacity:.6;cursor:progress}
+    .lead-err{margin:0;color:#b42318;font-size:14px}
+    .retry{min-height:44px;padding:0 14px;border:1px solid #0a0a0a;border-radius:0;background:#fff;color:#0a0a0a;font:inherit;font-weight:700;cursor:pointer}
+    /* Compact layout when ONRO is shown inside the site's "Ask ONRO" panel (an iframe). */
+    html.embedded body{overflow:hidden}
+    html.embedded .companion{min-height:100vh;height:100vh;display:flex;flex-direction:column;align-items:stretch;padding:0;gap:0}
+    html.embedded .character{flex:0 0 150px;height:150px}
+    html.embedded #stage{height:150px}
+    html.embedded h1,html.embedded .notice{display:none}
+    html.embedded .chat{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding:12px 14px 14px}
+    html.embedded #messages{flex:1 1 auto;height:auto;min-height:0;overflow:auto}
+  </style>
+</head>
+<body>
+  <main class="companion">
+    <section class="character" aria-label="ONRO, your learning companion">
+      <div id="stage" role="img" aria-label="ONRO, an expressive jade and coral robot"><img id="concept" src="./concept.webp" alt="ONRO, a friendly jade and coral robot" width="1254" height="1254" hidden></div>
+      <p id="error" role="alert" hidden></p>
+    </section>
+    <section class="chat" aria-labelledby="title">
+      <header><span class="brand">ONROL / ONRO</span><span id="status" role="status">Ready to listen</span></header>
+      <h1 id="title">What would you like<br>to know?</h1>
+      <div id="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"><p class="message assistant"><span>ONRO</span>Hi! I’m ONRO, ONROL’s assistant. Say “hi” for a menu, or ask about courses, certification or batch timings.</p></div>
+      <form id="lead-form" class="lead-form" hidden>
+        <label for="lead-name">Your name</label>
+        <input id="lead-name" name="name" maxlength="80" autocomplete="name" required>
+        <label for="lead-phone">Phone (with country code)</label>
+        <input id="lead-phone" name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+91 98765 43210" required>
+        <p id="lead-err" class="lead-err" role="alert" hidden></p>
+        <button type="submit">Request a call</button>
+      </form>
+      <form id="chat-form" onsubmit="return false"><label for="question">Message ONRO</label><div class="composer"><input id="question" name="question" maxlength="300" placeholder="Ask me something…" autocomplete="off" required><button type="submit">Send</button></div></form>
+      <p class="notice">Answers come from ONROL’s assistant. Fees are discussed by a counsellor.</p>
+    </section>
+  </main>
+  <script type="module" src="./live.js"></script>
+</body>
+</html>

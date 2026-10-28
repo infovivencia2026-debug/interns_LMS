@@ -1,0 +1,5 @@
+# ONRO assistant folder only. The site-wide .htaccess sends X-Frame-Options: DENY and
+# frame-ancestors 'none', which would block the "Ask ONRO" panel (an iframe of /onro-studio/).
+# This file relaxes framing to SAME-ORIGIN for this folder ONLY; every other page keeps DENY.
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://go.onrol.in; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ONRO · Motion studio</title>
+  <link rel="stylesheet" href="./studio.css">
+</head>
+<body>
+  <header><a href="/">ONROL<span> / </span>ONRO</a><span class="eyebrow">Character motion study · 01</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">The curious learning companion</p><h1>A little curiosity.<br>A lot of personality.</h1></div><p>Meet ONRO in motion. Explore its expressions and gestures, then try a sample conversation.</p></section>
+    <div class="workspace">
+      <section class="stage-panel" aria-label="Animated mascot preview">
+        <div class="stage-top"><span class="eyebrow">Jade / ivory / coral</span><button id="view" type="button" aria-pressed="false">Show concept</button></div>
+        <div id="stage" role="img" aria-label="ONRO, a jade and coral robot with expressive eyes and wheels"><img id="concept" src="./concept.webp" alt="Original ONRO concept: jade robot with an ivory face, coral hands, and chunky wheels" width="1254" height="1254" hidden></div>
+        <p id="error" role="alert" hidden></p>
+        <div class="stage-bottom"><div><span class="eyebrow">Now playing</span><p id="playing" aria-live="polite">Happy · Wave</p></div><button id="pause" type="button" aria-pressed="false">Pause motion</button></div>
+      </section>
+      <section class="controls" aria-labelledby="controls-title">
+        <p class="eyebrow">01 / Internal expression library</p><h2 id="controls-title">240 expression and movement combinations.</h2><p class="muted">16 expressions × 15 body actions. Internal animation review.</p>
+        <fieldset><legend>Expression</legend><div id="moods" class="choice-grid"></div></fieldset>
+        <fieldset><legend>Movement</legend><div id="gestures" class="choice-grid"></div></fieldset>
+        <div class="control-row"><button id="tour" type="button" aria-pressed="false">Play all 240</button><span id="counter" class="muted">001 / 240</span></div>
+        <div class="conversation"><p class="eyebrow">02 / Conversation rehearsal</p><h2>Ask. Watch. Connect.</h2><p class="muted">Scripted examples to test reactions. This preview does not call an AI service or save messages.</p>
+          <div class="prompts"><button type="button" data-prompt="hello">Say hello</button><button type="button" data-prompt="confused">I’m confused</button><button type="button" data-prompt="success">I built my first project!</button></div>
+          <form id="chat"><label for="question">Your question</label><div class="input-row"><input id="question" name="question" maxlength="300" placeholder="How do I get started?" autocomplete="off" required><button type="submit">Try it</button></div></form>
+          <p id="answer" role="status">Hi! I’m ONRO. Let’s build something together.</p>
+        </div>
+      </section>
+    </div>
+    <footer><span>ONRO / Interactive 3D prototype</span><span>Model rebuilt in Three.js from the concept image. Fine sculpting and live chatbot integration are separate steps.</span></footer>
+  </main>
+  <script type="module" src="./studio.js"></script>
+</body>
+</html>

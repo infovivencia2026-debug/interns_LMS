@@ -1,0 +1,38 @@
+/* Rendered outside page wrappers so the navbar has one theme everywhere: the
+   Light Grid bar — frosted white, Geist, ink links, an orange tile for "you are here". */
+#onrol-navbar{position:fixed;inset:0 0 auto;z-index:200;height:72px;display:flex;align-items:center;gap:40px;padding:0 max(24px,calc((100vw - 1280px) / 2));background:rgba(255,255,255,.86)!important;backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);color:#0a0a0a;border:0;border-bottom:1px solid #ebe8e4;box-shadow:none;isolation:isolate;font-family:"Geist","Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+#onrol-navbar *{box-sizing:border-box}
+#onrol-navbar .onrol-nav-logo{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0;height:44px;background:transparent;border:0;color:#0a0a0a;font-size:19px;font-weight:600;letter-spacing:-.045em;text-decoration:none}
+#onrol-navbar .onrol-nav-logo img{display:block;width:32px;height:32px;object-fit:contain;filter:none;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+#onrol-navbar .onrol-nav-logo:hover img{transform:rotate(90deg)}
+#onrol-nav-links{display:flex;flex:1;align-items:center;gap:4px;min-width:0}
+#onrol-navbar #onrol-nav-links a{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;margin:0;border:0;border-radius:9px;background:transparent;color:#4b4b4b;font-family:inherit;font-size:14.5px;font-weight:500;line-height:20px;letter-spacing:-.01em;text-transform:none;white-space:nowrap;text-decoration:none;transition:color .2s,background .2s}
+#onrol-navbar #onrol-nav-links a:hover{color:#0a0a0a;background:#f4f2ef}
+#onrol-navbar #onrol-nav-links a.active{color:#0a0a0a}
+#onrol-navbar #onrol-nav-links a.active::after{content:"";position:absolute;left:50%;bottom:1px;width:6px;height:6px;margin-left:-3px;border-radius:1.5px;background:#f25c19}
+#onrol-navbar #onrol-nav-links .onrol-nav-apply{margin-left:auto;height:42px;padding:0 20px;border-radius:11px;background:#0a0a0a;color:#fff;transition:background .2s,transform .2s}
+#onrol-navbar #onrol-nav-links .onrol-nav-apply:hover{background:#f25c19;color:#fff;transform:translateY(-1px)}
+#onrol-navbar #onrol-nav-links .onrol-nav-apply::after{display:none}
+#onrol-menu-toggle{display:none;margin-left:auto;flex-shrink:0;justify-content:center;align-items:center;flex-direction:column;gap:4px;background:#fff;border:1px solid #d9d5d0;border-radius:11px;padding:10px;width:44px;height:44px;cursor:pointer}
+#onrol-menu-toggle span{display:block;width:18px;height:1.5px;background:#0a0a0a;transition:transform .2s,opacity .2s}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+#onrol-navbar :is(a,button):focus-visible{outline:2px solid #f25c19;outline-offset:3px}
+/* Old markup remains for application-dialog scripts, never a second header. */
+#root #home-glydi .nav,#root #home-glydi .site-logo{display:none!important}
+/* The full bar needs ~860px, so it stays expanded on every laptop and only
+   tightens its spacing; the menu button takes over below 1024px. */
+@media(max-width:1180px){#onrol-navbar{gap:24px}#onrol-navbar #onrol-nav-links a{padding-inline:9px;font-size:14px}}
+@media(max-width:1023px){
+  #onrol-menu-toggle{display:flex}
+  #onrol-nav-links{display:none;position:absolute;top:80px;right:16px;width:300px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 100px);overflow-y:auto;padding:10px;border:1px solid #ebe8e4;border-radius:16px;background:#fff;box-shadow:0 24px 48px -20px rgba(0,0,0,.25);flex-direction:column;align-items:stretch;gap:2px;animation:onrol-menu .2s ease-out}
+  #onrol-nav-links.is-open{display:flex}
+  #onrol-navbar #onrol-nav-links a{justify-content:flex-start;font-size:16px;padding:12px 14px}
+  #onrol-navbar #onrol-nav-links a.active{background:#fff2eb}
+  #onrol-navbar #onrol-nav-links a.active::after{left:auto;right:16px;bottom:auto;top:50%;margin:-3px 0 0}
+  #onrol-navbar #onrol-nav-links .onrol-nav-apply{margin:8px 0 0;justify-content:center}
+}
+@keyframes onrol-menu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:480px){#onrol-navbar{padding-inline:16px}}
+@media(prefers-reduced-motion:reduce){#onrol-menu-toggle span,#onrol-nav-links{transition:none;animation:none}}

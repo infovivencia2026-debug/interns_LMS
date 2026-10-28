@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ONRO · Your learning companion</title>
+  <link rel="stylesheet" href="./companion.css">
+</head>
+<body>
+  <main class="companion">
+    <section class="character" aria-label="ONRO, your learning companion">
+      <div id="stage" role="img" aria-label="ONRO, an expressive jade and coral robot"><img id="concept" src="./concept.webp" alt="ONRO, a friendly jade and coral robot" width="1254" height="1254" hidden></div>
+      <p id="error" role="alert" hidden></p>
+    </section>
+    <section class="chat" aria-labelledby="title">
+      <header><span class="brand">ONROL / ONRO</span><span id="status" role="status">Ready to listen</span></header>
+      <h1 id="title">What would you like<br>to build?</h1>
+      <div id="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"><p class="message assistant"><span>ONRO</span>Hi! I’m ONRO. Tell me what you’d like to learn, or what’s holding you back.</p></div>
+      <form id="chat-form"><label for="question">Message ONRO</label><div class="composer"><input id="question" name="question" maxlength="300" placeholder="Ask me something…" autocomplete="off" required><button type="submit">Send</button></div></form>
+      <p class="notice">Conversation preview with scripted replies. Messages stay on this device.</p>
+    </section>
+  </main>
+  <script type="module" src="./companion.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@font-face{font-family:OnrolNavigation;src:url('/home-glydi/assets/fonts/manrope-700.woff2') format('woff2');font-weight:700;font-display:swap}
+/* Rendered outside page wrappers so the navbar has one theme everywhere. */
+#onrol-navbar{position:fixed;inset:0 0 auto;z-index:200;height:72px;display:flex;align-items:center;gap:32px;padding:0 4%;background:#fff;color:#4a453e;border:0;border-bottom:1px solid rgba(18,17,16,.13);box-shadow:none;isolation:isolate;font-family:OnrolNavigation,Arial,sans-serif}
+#onrol-navbar *{box-sizing:border-box}
+#onrol-navbar .onrol-nav-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;width:44px;height:44px;background:transparent;border:0}
+#onrol-navbar .onrol-nav-logo img{display:block;width:40px;height:40px;object-fit:contain;filter:none}
+#onrol-nav-links{display:flex;flex:1;align-items:center;gap:14px;min-width:0}
+#onrol-navbar #onrol-nav-links a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 10px;margin:0;border:0;border-radius:0;background:transparent;color:#4a453e;font-family:OnrolNavigation,Arial,sans-serif;font-size:12px;font-weight:700;line-height:18px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;text-decoration:none}
+#onrol-navbar #onrol-nav-links a:hover,#onrol-navbar #onrol-nav-links a.active{color:#c2500b}
+#onrol-navbar #onrol-nav-links .onrol-nav-apply{margin-left:auto;padding:9px 20px;background:#14120f;color:#fff}
+#onrol-navbar #onrol-nav-links .onrol-nav-apply:hover{background:#f46718;color:#14120f}
+#onrol-menu-toggle{display:none;margin-left:auto;flex-shrink:0;justify-content:center;flex-direction:column;gap:4px;background:transparent;border:0;padding:10px;width:44px;height:44px;cursor:pointer}
+#onrol-menu-toggle span{display:block;width:21px;height:2px;background:#14120f;transition:transform .2s,opacity .2s}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+#onrol-menu-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+#onrol-navbar :is(a,button):focus-visible{outline:2px solid #c2500b;outline-offset:4px}
+/* Old markup remains for application-dialog scripts, never a second header. */
+#root #home-glydi .nav,#root #home-glydi .site-logo{display:none!important}
+.pathway-site{padding-top:72px}
+/* The full bar needs ~990px, so it stays expanded on every laptop and only
+   tightens its spacing; the menu button takes over below 1024px. */
+@media(max-width:1280px){#onrol-navbar{padding-inline:24px;gap:24px}}
+@media(max-width:1180px){#onrol-nav-links{gap:4px}#onrol-navbar #onrol-nav-links a{padding-inline:8px}}
+@media(max-width:1023px){
+  #onrol-menu-toggle{display:flex}
+  #onrol-nav-links{display:none;position:absolute;top:80px;right:20px;width:280px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 100px);overflow-y:auto;padding:12px;border:1px solid rgba(18,17,16,.13);background:#fff;flex-direction:column;align-items:stretch;gap:3px}
+  #onrol-nav-links.is-open{display:flex}
+  #onrol-navbar #onrol-nav-links .onrol-nav-apply{margin:6px 0 0}
+}
+@media(max-width:480px){#onrol-navbar{padding-inline:16px}}
+@media(prefers-reduced-motion:reduce){#onrol-menu-toggle span{transition:none}}
